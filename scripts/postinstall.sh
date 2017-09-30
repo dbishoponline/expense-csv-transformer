@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # include common functions
-. "_common.sh"
+. "./scripts/_common.sh"
 
 # add postinstall stuff below
 echo "doing postinstall..."
