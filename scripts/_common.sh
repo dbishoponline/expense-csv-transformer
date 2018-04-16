@@ -1,7 +1,7 @@
 #!/bin/bash
 
 build() {
-  if ! babel --presets es2015,stage-0 -d dist/ src/ ; then
+  if ! babel --presets env,stage-0 -d dist/ src/ ; then
     echo 'Error: Unable to compile the source files to dist/'
   fi
 }
