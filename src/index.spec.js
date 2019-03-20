@@ -1,5 +1,5 @@
-require("babel-register")
-require("babel-polyfill")
+require("@babel/register")
+require("@babel/polyfill")
 
 import test from "ava"
 import sinon from "sinon"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 build() {
-  if ! babel --presets env,stage-0 -d dist/ src/ ; then
+  if ! babel --presets @babel/preset-env -d dist/ src/ ; then
     echo 'Error: Unable to compile the source files to dist/'
   fi
 }
