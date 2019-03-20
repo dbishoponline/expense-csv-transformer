@@ -4,6 +4,7 @@
   "description": "A boilerplate for building a new Node.js module",
   "main": "index.js",
   "scripts": {
+    "transform": "./scripts/transform.sh",
     "postinstall": "./scripts/postinstall.sh",
     "debug": "./scripts/debug.sh",
     "build": "./scripts/build.sh",
@@ -23,7 +24,9 @@
     "@babel/runtime": "^7.1.2",
     "bluebird": "^3.5.0",
     "crocks": "^0.7.1",
+    "csv": "^5.1.1",
     "fs": "0.0.1-security",
+    "path": "^0.12.7",
     "ramda": "^0.24.1",
     "ramda-fantasy": "^0.8.0"
   },

@@ -1,2 +1,6 @@
-# Node Module Boilerplate
-This repo provides some essentials for creating a new Node Module and the means to publish it.
+# Expenses CSV Transform
+
+To transform a csv file, run the following command:
+```
+$ npm run transform -- path/to/expenses.csv
+```
