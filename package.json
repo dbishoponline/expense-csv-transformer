@@ -1,8 +1,8 @@
 {
-  "name": "node-module-boilerplate",
+  "name": "expense-csv-transformer",
   "version": "1.0.0",
-  "description": "A boilerplate for building a new Node.js module",
-  "main": "index.js",
+  "description": "A module to transform a CSV exported from Mint into a format which can be imported into Quickbooks Online",
+  "main": "./dist/index.js",
   "scripts": {
     "transform": "./scripts/transform.sh",
     "postinstall": "./scripts/postinstall.sh",
@@ -24,10 +24,11 @@
     "@babel/runtime": "^7.4.2",
     "bluebird": "^3.5.3",
     "crocks": "^0.11.1",
+    "csv": "^5.1.1",
     "fs": "0.0.2",
+    "path": "^0.12.7",
     "ramda": "^0.26.1",
-    "ramda-fantasy": "^0.8.0",
-    "path": "^0.12.7"
+    "ramda-fantasy": "^0.8.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

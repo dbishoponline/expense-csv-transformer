@@ -4,4 +4,4 @@
 source "./scripts/_common.sh"
 
 # compile the project
-node src/index.js $1
+node dist/index.js $1 $2
