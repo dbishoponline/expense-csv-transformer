@@ -14,7 +14,7 @@
         "run-script",
         "transform",
         "--",
-        "/Users/dylanbishop/financials/exported_from_numbers/2018-bofa-business-checking.csv",
+        "<your csv file>",
         "-c"
       ],
       "port": 9229
@@ -29,7 +29,7 @@
         "run-script",
         "transform",
         "--",
-        "/Users/dylanbishop/financials/exported_from_numbers/2018-bofa-business-checking.csv",
+        "<your csv file>",
         "-c"
       ],
     }

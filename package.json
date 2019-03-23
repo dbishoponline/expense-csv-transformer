@@ -1,6 +1,6 @@
 {
-  "name": "expense-csv-transformer",
-  "version": "1.0.0",
+  "name": "minty",
+  "version": "0.0.1",
   "description": "A module to transform a CSV exported from Mint into a format which can be imported into Quickbooks Online",
   "main": "./dist/index.js",
   "scripts": {
