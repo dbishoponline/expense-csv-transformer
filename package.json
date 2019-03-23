@@ -60,7 +60,6 @@
       "dist/*.spec.js"
     ],
     "tap": true,
-    "babel": "inherit",
     "require": [
       "@babel/register"
     ]
