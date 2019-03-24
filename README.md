@@ -16,9 +16,11 @@ To transform a csv file, run the following command:
 $ mintx path/to/expenses.csv
 ```
 
-To transform a csv file and ***combine labels/notes*** into the description, run the following command:
+The transformed csv file has ***labels/notes combined*** into the description
+
+To filter transactions by year (2018), run the following command:
 ```
-$ mintx path/to/expenses.csv -c
+$ mintx path/to/expenses.csv 2018
 ```
 
 Then import into Quickbooks Online
