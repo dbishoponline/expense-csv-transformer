@@ -1,8 +1,15 @@
 {
   "name": "mintx",
   "version": "0.0.1",
-  "description": "A module to transform a CSV exported from Mint into a format which can be imported into Quickbooks Online",
-  "main": "./dist/index.js",
+  "description": "Transforms a CSV exported from Mint into a format which can be imported into Quickbooks Online",
+  "author": "Dylan Bishop",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dbishoponline/mintx.git"
+  },
+  "preferGlobal": true,
+  "bin": "./scripts/transform.sh",
   "scripts": {
     "transform": "./scripts/transform.sh",
     "postinstall": "./scripts/postinstall.sh",
@@ -13,12 +20,6 @@
     "start": "./scripts/start.sh",
     "stop": "./scripts/stop.sh"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dbishoponline/mintx.git"
-  },
-  "author": "Dylan Bishop",
-  "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
     "@babel/runtime": "^7.4.2",
