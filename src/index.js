@@ -46,7 +46,7 @@ const runAction = () => {
 const createFilenamePathCSV = (csvFilePath) =>
   isNil(process.argv[3])
     ? `${dirname(csvFilePath)}/${parse(csvFilePath).name}_transformed_${Date.now()}.csv`
-    : `${dirname(csvFilePath)}/${parse(csvFilePath).name}_transformed_${process.argv[3]}_${Date.now()}.csv`
+    : `${dirname(csvFilePath)}/${parse(csvFilePath).name}_${process.argv[3]}_transformed_${Date.now()}.csv`
 
 // initialize the csv transform script
 init()
