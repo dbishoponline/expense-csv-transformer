@@ -31,12 +31,18 @@ var headerRecord = function headerRecord(record) {
 exports.headerRecord = headerRecord;
 
 var bodyRecord = function bodyRecord(record) {
+  var date = record[0];
   var description = record[2];
   var amount = record[3];
   var type = record[4];
   var category = record[5];
   var labels = record[7];
   var notes = record[8];
+
+  if (!(0, _ramda.isNil)(process.argv[3]) && process.argv[3] !== date.split('/').pop()) {
+    return null;
+  }
+
   return (0, _ramda.pipe)(transformDescription({
     description: description,
     category: category,
@@ -59,13 +65,12 @@ exports.reducePropsIntoDescription = reducePropsIntoDescription;
 var transformDescription = function transformDescription(orig) {
   return function (record) {
     // flag to combine category, labels, notes into description
-    if (process.argv[3] === '-c') {
-      var props = _objectSpread({}, orig);
+    // if(process.argv[3] === '-c'){
+    var props = _objectSpread({}, orig);
 
-      delete props.description;
-      var newStr = Object.entries(props).reduce(reducePropsIntoDescription, orig.description);
-      record[2] = "".concat(newStr, " ||| From: Mint");
-    }
+    delete props.description;
+    var newStr = Object.entries(props).reduce(reducePropsIntoDescription, orig.description);
+    record[2] = "".concat(newStr, " ||| From: Mint"); // }
 
     return record;
   };
@@ -96,6 +101,13 @@ var transformAmounts = function transformAmounts(orig) {
 };
 
 exports.transformAmounts = transformAmounts;
+
+var splitByYear = function splitByYear() {
+  return !debug ? fs.createWriteStream(newFilePath, {
+    flags: 'a'
+  }) : process.stdout;
+};
+
 var count = 0;
 
 var transform = function transform(record) {
@@ -106,6 +118,7 @@ var transform = function transform(record) {
 
 exports.transform = transform;
 var _default = {
-  transform: transform
+  transform: transform,
+  splitByYear: splitByYear
 };
 exports.default = _default;

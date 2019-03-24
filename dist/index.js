@@ -36,7 +36,7 @@ var init = function init() {
 var runAction = function runAction() {
   // file paths
   var csvFilePath = process.argv[2].toString();
-  var newFilePath = "".concat((0, _path.dirname)(csvFilePath), "/").concat((0, _path.parse)(csvFilePath).name, "_transformed_").concat(Date.now(), ".csv");
+  var newFilePath = createFilenamePathCSV(csvFilePath);
 
   _fs.default.createReadStream(csvFilePath).pipe(_csv.default.parse()).pipe(_csv.default.transform(_mintQuickbooks.transform)).pipe(_csv.default.stringify()).pipe(!debug ? _fs.default.createWriteStream(newFilePath, {
     flags: 'a'
@@ -44,6 +44,10 @@ var runAction = function runAction() {
 
   logSuccess("CSV Transformation Complete!");
   logSuccess(newFilePath);
+};
+
+var createFilenamePathCSV = function createFilenamePathCSV(csvFilePath) {
+  return (0, _ramda.isNil)(process.argv[3]) ? "".concat((0, _path.dirname)(csvFilePath), "/").concat((0, _path.parse)(csvFilePath).name, "_transformed_").concat(Date.now(), ".csv") : "".concat((0, _path.dirname)(csvFilePath), "/").concat((0, _path.parse)(csvFilePath).name, "_transformed_").concat(process.argv[3], "_").concat(Date.now(), ".csv");
 };
 
 init();
