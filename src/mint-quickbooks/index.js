@@ -19,12 +19,17 @@ export const headerRecord = record => {
 }
 
 export const bodyRecord = record => {
+  const date = record[0]
   const description = record[2]
   const amount = record[3]
   const type = record[4]
   const category = record[5]
   const labels = record[7]
   const notes = record[8]
+
+  if(!isNil(process.argv[3]) && process.argv[3] !== date.split('/').pop()) {
+    return null
+  }
 
   return pipe(
     transformDescription({ description, category, labels, notes, }),
@@ -40,7 +45,7 @@ export const reducePropsIntoDescription = (acc, key, index, src) =>
 export const transformDescription = orig => record => {
 
   // flag to combine category, labels, notes into description
-  if(process.argv[3] === '-c'){
+  // if(process.argv[3] === '-c'){
     let props = {
       ...orig
     }
@@ -49,7 +54,7 @@ export const transformDescription = orig => record => {
       .reduce(reducePropsIntoDescription, orig.description)
 
     record[2] = `${newStr} ||| From: Mint`
-  }
+  // }
 
   return record
 }
@@ -76,6 +81,10 @@ export const transformAmounts = orig => record => {
   return record
 }
 
+const splitByYear = () =>
+  !debug
+    ? fs.createWriteStream(newFilePath, {flags: 'a'})
+    : process.stdout
 
 let count = 0
 
@@ -91,4 +100,5 @@ export const transform = record => {
 
 export default {
   transform,
+  splitByYear,
 }
